@@ -1,67 +1,61 @@
-<!doctype html>
+{% from "icons.html" import icon %}<!doctype html>
 <html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{ p.name }} — {{ p.role }}</title>
-  <meta name="description" content="{{ p.role }}">
+  <meta name="description" content="{{ p.lead }}">
+  <meta property="og:title" content="{{ p.name }}">
+  <meta property="og:description" content="{{ p.role }}">
+  <meta property="og:image" content="static/{{ p.photo }}">
+  <link rel="icon" href="static/{{ p.photo }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="static/style.css">
 </head>
 <body>
   <main class="card">
     <header class="hero">
       <div class="avatar">
-        {% if p.photo %}
-          <img src="static/{{ p.photo }}" alt="{{ p.name }}">
-        {% else %}
-          <span>{{ p.name[0] }}</span>
-        {% endif %}
+        {% if p.photo %}<img src="static/{{ p.photo }}" alt="{{ p.name }}">{% else %}<span>{{ p.name[0] }}</span>{% endif %}
       </div>
-      <div>
-        <h1>{{ p.name }}</h1>
-        <p class="role">{{ p.role }}</p>
-      </div>
+      <h1>{{ p.name }}</h1>
+      <p class="role">{{ p.role }}</p>
+      <p class="lead">{{ p.lead }}</p>
     </header>
 
-    <section class="about">
-      {% for line in p.about %}<p>{{ line }}</p>{% endfor %}
-      <ul class="tags">
-        {% for s in p.skills %}<li>{{ s }}</li>{% endfor %}
-      </ul>
+    <section class="directions">
+      {% for d in p.directions %}
+      <article class="direction">
+        <div class="direction-head">
+          <span class="dir-icon">{{ icon(d.icon) }}</span>
+          <h2>{{ d.title }}</h2>
+        </div>
+        <ul>{% for item in d['items'] %}<li>{{ item }}</li>{% endfor %}</ul>
+      </article>
+      {% endfor %}
     </section>
 
-    {% if p.contacts %}
-    <section>
-      <h2>Контакты</h2>
+    {% for g in p.groups %}
+    <section class="group">
+      <h3 class="group-title"><span>{{ g.title }}</span></h3>
       <ul class="links">
-        {% for c in p.contacts if c.url %}
-        <li><a href="{{ c.url }}" target="_blank" rel="noopener">
-          <span class="label">{{ c.label }}</span>
-          <span class="value">{{ c.value }}</span>
-          <span class="arrow">→</span>
-        </a></li>
+        {% for l in g.links %}
+        <li>
+          <a href="{{ l.url }}" {% if not l.url.startswith('mailto:') %}target="_blank" rel="noopener"{% endif %} aria-label="{{ l.label }}: {{ l.name }}">
+            <span class="link-icon icon-{{ l.icon }}">{{ icon(l.icon) }}</span>
+            <span class="link-text">
+              <span class="link-name">{{ l.name }}</span>
+              <span class="link-meta">{{ l.label }} · {{ l.handle }}</span>
+            </span>
+            <span class="link-arrow">{{ icon('arrow') }}</span>
+          </a>
+        </li>
         {% endfor %}
       </ul>
     </section>
-    {% endif %}
-
-    {% if p.projects %}
-    <section>
-      <h2>Проекты</h2>
-      <ul class="links">
-        {% for pr in p.projects if pr.url %}
-        <li><a href="{{ pr.url }}" target="_blank" rel="noopener">
-          <span class="label">{{ pr.platform }}</span>
-          <span class="value">{{ pr.title }}</span>
-          <span class="arrow">→</span>
-        </a></li>
-        {% endfor %}
-      </ul>
-    </section>
-    {% endif %}
+    {% endfor %}
 
     <footer>© {{ p.name }}</footer>
   </main>
