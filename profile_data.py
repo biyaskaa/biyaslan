@@ -32,7 +32,7 @@ PROFILE = {
             "title": "Проекты",
             "links": [
                 {"icon": "telegram", "label": "Telegram", "name": "Краткая сводка", "handle": "@mokaevprojects",
-                 "url": "https://t.me/mokaevprojects"},
+                 "url": "https://t.me/mkvvprojects"},
                 {"icon": "instagram", "label": "Instagram", "name": "dr.mokaeva", "handle": "@dr.mokaevaa",
                  "url": "https://www.instagram.com/dr.mokaevaa"},
             ],
