@@ -7,18 +7,18 @@
   <meta name="description" content="{{ p.lead }}">
   <meta property="og:title" content="{{ p.name }}">
   <meta property="og:description" content="{{ p.role }}">
-  <meta property="og:image" content="static/{{ p.photo }}">
-  <link rel="icon" href="static/{{ p.photo }}">
+  <meta property="og:image" content="static/{{ p.photo }}?v={{ v }}">
+  <link rel="icon" href="static/{{ p.photo }}?v={{ v }}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="static/style.css">
+  <link rel="stylesheet" href="static/style.css?v={{ v }}">
 </head>
 <body>
   <main class="card">
     <header class="hero">
       <div class="avatar">
-        {% if p.photo %}<img src="static/{{ p.photo }}" alt="{{ p.name }}">{% else %}<span>{{ p.name[0] }}</span>{% endif %}
+        {% if p.photo %}<img src="static/{{ p.photo }}?v={{ v }}" alt="{{ p.name }}">{% else %}<span>{{ p.name[0] }}</span>{% endif %}
       </div>
       <h1>{{ p.name }}</h1>
       <p class="role">{{ p.role }}</p>

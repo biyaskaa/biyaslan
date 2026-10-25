@@ -26,13 +26,13 @@ PROFILE = {
                  "url": "https://www.tiktok.com/@biyaskk"},
                 {"icon": "instagram", "label": "Instagram", "name": "𝐄𝐥𝐢𝐲𝐚𝐡", "handle": "@dev.mokaev",
                  "url": "https://www.instagram.com/dev.mokaev"},
-                {"icon": "telegram", "label": "Telegram", "name": "𝐦𝐤𝐯𝐯", "handle": "@mokaevprojects",
-                 "url": "https://t.me/mokaevprojects"},
             ],
         },
         {
             "title": "Проекты",
             "links": [
+                {"icon": "telegram", "label": "Telegram", "name": "Краткая сводка", "handle": "@mokaevprojects",
+                 "url": "https://t.me/mokaevprojects"},
                 {"icon": "instagram", "label": "Instagram", "name": "dr.mokaeva", "handle": "@dr.mokaevaa",
                  "url": "https://www.instagram.com/dr.mokaevaa"},
             ],

@@ -2,6 +2,7 @@
 
 Запуск: python build.py
 """
+import hashlib
 import shutil
 from pathlib import Path
 
@@ -22,7 +23,12 @@ def build() -> None:
         loader=FileSystemLoader(ROOT / "templates"),
         autoescape=select_autoescape(["html"]),
     )
-    html = env.get_template("index.html").render(p=PROFILE)
+    # Версия файлов для защиты от кеша браузера: меняется при каждой правке.
+    digest = hashlib.md5()
+    for f in sorted((ROOT / "static").rglob("*")):
+        if f.is_file():
+            digest.update(f.read_bytes())
+    html = env.get_template("index.html").render(p=PROFILE, v=digest.hexdigest()[:8])
     (DIST / "index.html").write_text(html, encoding="utf-8")
     shutil.copytree(ROOT / "static", DIST / "static")
     (DIST / ".nojekyll").touch()
