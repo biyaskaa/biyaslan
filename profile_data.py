@@ -1,5 +1,5 @@
 # Все данные визитки в одном месте.
-# icon: tiktok | instagram | telegram | email | github
+# icon: tiktok | instagram | telegram | email | github | book
 
 PROFILE = {
     "name": "Mokaev Biyaslan",
@@ -15,7 +15,7 @@ PROFILE = {
         {
             "icon": "spark",
             "title": "Контент",
-            "items": ["AI-проекты в TikTok и Instagram", "Канал на национальную тематику"],
+            "items": ["AI-проекты в TikTok и Instagram", "Анимационные хоррор-истории", "Переводы литературы на карачаево-балкарский"],
         },
     ],
     "groups": [
@@ -31,8 +31,13 @@ PROFILE = {
         {
             "title": "Проекты",
             "links": [
-                {"icon": "telegram", "label": "Telegram", "name": "Краткая сводка", "handle": "@mokaevprojects",
+                {"icon": "telegram", "label": "Telegram", "name": "Краткая сводка", "handle": "@mkvvprojects",
                  "url": "https://t.me/mkvvprojects"},
+                {"icon": "book", "label": "Сайт", "name": "Asson Antheneum",
+                 "handle": "переводы на карачаево-балкарский",
+                 "url": "https://biyaskaa.github.io/Asson-Antheneum/"},
+                {"icon": "tiktok", "label": "TikTok", "name": "Страшные истории лесника", "handle": "@lesnikstory",
+                 "url": "https://www.tiktok.com/@lesnikstory"},
                 {"icon": "instagram", "label": "Instagram", "name": "dr.mokaeva", "handle": "@dr.mokaevaa",
                  "url": "https://www.instagram.com/dr.mokaevaa"},
             ],
