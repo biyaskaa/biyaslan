@@ -36,8 +36,6 @@ PROFILE = {
                 {"icon": "book", "label": "Сайт", "name": "Asson Antheneum",
                  "handle": "переводы на карачаево-балкарский",
                  "url": "https://biyaskaa.github.io/Asson-Antheneum/"},
-                {"icon": "tiktok", "label": "TikTok", "name": "Страшные истории лесника", "handle": "@lesnikstory",
-                 "url": "https://www.tiktok.com/@lesnikstory"},
                 {"icon": "instagram", "label": "Instagram", "name": "dr.mokaeva", "handle": "@dr.mokaevaa",
                  "url": "https://www.instagram.com/dr.mokaevaa"},
             ],
